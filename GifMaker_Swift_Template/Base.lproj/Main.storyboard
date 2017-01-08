@@ -209,6 +209,9 @@
                             <color key="tintColor" red="1" green="0.25490196079999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="gifImageView" destination="Idg-S9-dYE" id="J2B-hd-rui"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSQ-pK-rKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -473,6 +476,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="GOk-gI-dlu"/>
                     <connections>
+                        <outlet property="gifImageView" destination="Wun-5B-Ruk" id="Le3-JP-UWT"/>
                         <segue destination="gN0-HT-VRx" kind="show" identifier="showGifEditor" id="wkV-9i-gKS"/>
                     </connections>
                 </viewController>
