@@ -12,14 +12,25 @@ class GifEditorViewController: UIViewController {
 
     @IBOutlet weak var gifImageView: UIImageView!
     
-    var gifURL: NSURL? = nil
+    @IBOutlet weak var captionTextField: UITextField!
+    var gif: Gif?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if let gifURL = gifURL {
-            let gifFromRecording = UIImage.gif(url: gifURL.absoluteString!)
-            gifImageView.image = gifFromRecording
-        }
+        captionTextField.delegate = self
+        gifImageView.image = gif?.gifImage
     }
 
+}
+
+extension GifEditorViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = ""
+    }
 }
