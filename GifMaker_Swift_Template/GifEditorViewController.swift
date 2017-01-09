@@ -19,8 +19,61 @@ class GifEditorViewController: UIViewController {
         super.viewWillAppear(true)
         captionTextField.delegate = self
         gifImageView.image = gif?.gifImage
+        
+        subscribeToKeyboardNotifications()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        unsubscribeToKeyboardNotifications();
+        
+    }
+    
+    @IBAction func presentPreview(_ sender: Any) {
+        let previewVC = storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
+        self.gif?.caption = self.captionTextField.text
+        
+        let regift = Regift(sourceFileURL: (self.gif?.videoURL)!, destinationFileURL: nil, frameCount: frameCount, delayTime: delayTime, loopCount: loopCount)
+        
+        let captionFont = self.captionTextField.font
+        
+        let gifURL = regift.createGif(caption: self.captionTextField.text, font: captionFont)
+        
+        let newGif = Gif(url: gifURL!, videoURL: (self.gif?.videoURL)!, caption: self.captionTextField.text)
+        previewVC.gif = newGif
+        
+        navigationController?.pushViewController(previewVC, animated: true)
+    }
+    
 
+}
+
+extension GifEditorViewController {
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeToKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        view.frame.origin.y =  -getKeyboardHeight(notification: notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardHeight = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardHeight.cgRectValue.height
+    }
+    
 }
 
 extension GifEditorViewController: UITextFieldDelegate {

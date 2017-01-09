@@ -10,9 +10,12 @@ import UIKit
 
 class PreviewViewController: UIViewController {
 
+    var gif: Gif?
+    @IBOutlet weak var gifImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.gifImageView.image = self.gif?.gifImage
         // Do any additional setup after loading the view.
     }
 
@@ -31,5 +34,26 @@ class PreviewViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func shareGif(_ sender: Any) {
+        do {
+            let animatedGif = try Data(contentsOf: (self.gif?.url)!)
+            
+            let itemsToShare = NSArray(array: [animatedGif])
+            
+            let shareController = UIActivityViewController(activityItems: itemsToShare as! [Any], applicationActivities: nil)
+            
+            shareController.completionWithItemsHandler = {(_, completed, _, _) in
+                if completed {
+                        self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
+
+            present(shareController, animated: true, completion: nil)
+            
+        }
+        catch {
+            // Error handling
+        }
+    }
 
 }
