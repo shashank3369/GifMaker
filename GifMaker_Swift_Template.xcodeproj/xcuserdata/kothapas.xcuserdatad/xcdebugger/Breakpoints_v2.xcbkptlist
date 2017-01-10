@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GifMaker_Swift_Template/Gif.swift"
-            timestampString = "505595480.766531"
+            filePath = "GifMaker_Swift_Template/UIViewController+Record.swift"
+            timestampString = "505703194.786371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "init(url:videoURL:caption:)"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "displayGIF(gif:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GifMaker_Swift_Template/UIViewController+Record.swift"
+            timestampString = "505703200.8324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "convertVideoToGIF(videoURL:start:duration:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

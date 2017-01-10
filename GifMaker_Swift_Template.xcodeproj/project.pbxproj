@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1ECBF61E245F05004F9C6F /* SavedGifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1ECBF51E245F05004F9C6F /* SavedGifsViewController.swift */; };
+		8A1ECBF81E24610B004F9C6F /* GifCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1ECBF71E24610B004F9C6F /* GifCell.swift */; };
 		8A2776C11E22A7E40048FE86 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2776C01E22A7E40048FE86 /* WelcomeViewController.swift */; };
 		8A2776C31E22A7FB0048FE86 /* GifEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2776C21E22A7FB0048FE86 /* GifEditorViewController.swift */; };
 		8A2776C51E22A80D0048FE86 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2776C41E22A80D0048FE86 /* PreviewViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A1ECBF51E245F05004F9C6F /* SavedGifsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedGifsViewController.swift; sourceTree = "<group>"; };
+		8A1ECBF71E24610B004F9C6F /* GifCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCell.swift; sourceTree = "<group>"; };
 		8A2776C01E22A7E40048FE86 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
 		8A2776C21E22A7FB0048FE86 /* GifEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifEditorViewController.swift; sourceTree = "<group>"; };
 		8A2776C41E22A80D0048FE86 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		EDFAA8EB1CDA99A500D2CB08 /* GifMaker_Swift_Template */ = {
 			isa = PBXGroup;
 			children = (
+				8A1ECBF51E245F05004F9C6F /* SavedGifsViewController.swift */,
+				8A1ECBF71E24610B004F9C6F /* GifCell.swift */,
 				8A2776C81E22B7070048FE86 /* UIImage+Gif.swift */,
 				8A2776C41E22A80D0048FE86 /* PreviewViewController.swift */,
 				8A2776C61E22A9660048FE86 /* UIViewController+Record.swift */,
@@ -194,6 +200,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFAA9201CDA9C3100D2CB08 /* Regift.swift in Sources */,
+				8A1ECBF61E245F05004F9C6F /* SavedGifsViewController.swift in Sources */,
+				8A1ECBF81E24610B004F9C6F /* GifCell.swift in Sources */,
 				8A2776C11E22A7E40048FE86 /* WelcomeViewController.swift in Sources */,
 				8A2776C51E22A80D0048FE86 /* PreviewViewController.swift in Sources */,
 				8A2776C91E22B7070048FE86 /* UIImage+Gif.swift in Sources */,
