@@ -22,8 +22,17 @@ class SavedGifsViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        showWelcome()
+        savedGifs = NSKeyedUnarchiver.unarchiveObject(withFile: gifsFilePath) as! [Gif]
         // Do any additional setup after loading the view.
+    }
+    
+    func showWelcome() {
+        if (UserDefaults.standard.bool(forKey: "WelcomeViewSeen") == false) {
+            let welcomeViewController = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+            self.navigationController?.pushViewController(welcomeViewController, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +54,16 @@ class SavedGifsViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let gif = savedGifs[indexPath.item]
+        
+        let gifDetailVC = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        gifDetailVC.gif = gif
+        gifDetailVC.modalPresentationStyle = .overCurrentContext
+        present(gifDetailVC, animated: true, completion: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.size.width/2 - (cellMargin*2.0))/2.0
         
@@ -60,6 +79,7 @@ extension SavedGifsViewController: PreviewViewControllerDelegate {
         do {
             gif.data = try Data(contentsOf: gif.url!)
             savedGifs.append(gif)
+            NSKeyedArchiver.archiveRootObject(savedGifs, toFile: gifsFilePath)
         }
         catch {
             // Error handling

@@ -25,6 +25,8 @@ class WelcomeViewController: UIViewController {
         let proofOfConcept = UIImage.gif(name: "hotlineBling")
         gifImageView.image = proofOfConcept
         
+        UserDefaults.standard.set(true, forKey: "WelcomeViewSeen")
+        
     }
     
 }
